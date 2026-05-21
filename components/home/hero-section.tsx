@@ -8,7 +8,7 @@ export function HeroSection() {
   const [destination, setDestination] = useState("");
 
   return (
-    <section className="relative min-h-screen flex items-end pb-20 lg:pb-32">
+    <section className="relative min-h-screen flex items-end pt-28 md:pt-36 pb-20 lg:pb-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div

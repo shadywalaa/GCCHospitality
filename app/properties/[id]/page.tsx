@@ -487,7 +487,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
 
         {/* Booking Form */}
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="space-y-2">
               <label className="text-muted-foreground text-xs tracking-wide">
                 CHECK IN
@@ -498,7 +498,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
                   type="date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
-                  className="w-full bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="w-full min-w-0 bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </div>
@@ -512,7 +512,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
                   type="date"
                   value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
-                  className="w-full bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="w-full min-w-0 bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </div>

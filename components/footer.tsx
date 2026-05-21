@@ -53,7 +53,7 @@ export function Footer() {
               most discerning owners and guests.
             </p>
             <div className="flex items-center gap-4">
-              {["Facebook", "Instagram", "TikTok"].map((social) => (
+              {["Instagram", "WhatsApp", "Contact"].map((social) => (
                 <a
                   key={social}
                   href="#"
