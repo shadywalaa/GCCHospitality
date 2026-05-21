@@ -470,6 +470,8 @@ function PropertyLocation({ property }: { property: (typeof properties)[0] }) {
 }
 
 function BookingCard({ property }: { property: (typeof properties)[0] }) {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [step, setStep] = useState(1);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
@@ -587,9 +589,145 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
         </div>
 
         {/* Book Button */}
-        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-sm tracking-wide">
+        <Button
+          onClick={() => {
+            const params = new URLSearchParams({
+              id: property.id,
+              checkIn,
+              checkOut,
+              guests: String(guests),
+            });
+
+            window.location.href = `/checkout?${params.toString()}`;
+          }}
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-sm tracking-wide"
+        >
           Reserve Now
         </Button>
+        {isBookingOpen && (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+            onClick={() => setIsBookingOpen(false)}
+          >
+            <div
+              className="w-full max-w-md bg-[#111] border border-white/10 p-6 rounded-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-medium text-foreground">
+                  {step === 1 && "Select Dates"}
+                  {step === 2 && "Guests"}
+                  {step === 3 && "Confirm Booking"}
+                </h2>
+
+                <button
+                  onClick={() => setIsBookingOpen(false)}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* STEP 1 - Dates */}
+              {step === 1 && (
+                <div className="space-y-4">
+                  <input
+                    type="date"
+                    value={checkIn}
+                    onChange={(e) => setCheckIn(e.target.value)}
+                    className="w-full bg-secondary border border-border p-3 text-sm"
+                  />
+
+                  <input
+                    type="date"
+                    value={checkOut}
+                    onChange={(e) => setCheckOut(e.target.value)}
+                    className="w-full bg-secondary border border-border p-3 text-sm"
+                  />
+
+                  <Button
+                    className="w-full h-11"
+                    onClick={() => setStep(2)}
+                    disabled={!checkIn || !checkOut}
+                  >
+                    Continue
+                  </Button>
+                </div>
+              )}
+
+              {/* STEP 2 - Guests */}
+              {step === 2 && (
+                <div className="space-y-4">
+                  <select
+                    value={guests}
+                    onChange={(e) => setGuests(Number(e.target.value))}
+                    className="w-full bg-secondary border border-border p-3 text-sm"
+                  >
+                    {[...Array(property.guests)].map((_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1} {i === 0 ? "Guest" : "Guests"}
+                      </option>
+                    ))}
+                  </select>
+
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      className="w-full h-11"
+                      onClick={() => setStep(1)}
+                    >
+                      Back
+                    </Button>
+
+                    <Button className="w-full h-11" onClick={() => setStep(3)}>
+                      Continue
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 3 - Summary */}
+              {step === 3 && (
+                <div className="space-y-4">
+                  <div className="text-sm text-muted-foreground space-y-2">
+                    <p>
+                      <span className="text-foreground">Check-in:</span>{" "}
+                      {checkIn}
+                    </p>
+                    <p>
+                      <span className="text-foreground">Check-out:</span>{" "}
+                      {checkOut}
+                    </p>
+                    <p>
+                      <span className="text-foreground">Guests:</span> {guests}
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      className="w-full h-11"
+                      onClick={() => setStep(2)}
+                    >
+                      Back
+                    </Button>
+
+                    <Button
+                      className="w-full h-11 bg-primary"
+                      onClick={() => {
+                        alert("Booking request sent (demo)");
+                        setIsBookingOpen(false);
+                      }}
+                    >
+                      Request Booking
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         <p className="text-center text-muted-foreground text-xs">
           You won&apos;t be charged yet

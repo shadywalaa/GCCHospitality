@@ -25,6 +25,13 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    if (isLoginOpen || isSignupOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isLoginOpen, isSignupOpen]);
 
   return (
     <header
@@ -142,6 +149,101 @@ export function Navigation() {
           </div>
         )}
       </nav>
+      {isLoginOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm px-6"
+          onClick={() => setIsLoginOpen(false)}
+        >
+          <div
+            className="w-full max-w-md bg-[#111111] border border-white/10 p-8 rounded-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsLoginOpen(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <h2 className="text-2xl font-semibold text-white mb-2 tracking-wide">
+              Welcome Back
+            </h2>
+
+            <p className="text-white/50 text-sm mb-8">
+              Login to access your account
+            </p>
+
+            <div className="space-y-4">
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full h-12 bg-white/5 border border-white/10 px-4 text-white outline-none"
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full h-12 bg-white/5 border border-white/10 px-4 text-white outline-none"
+              />
+
+              <button className="w-full h-12 bg-primary text-black font-medium hover:opacity-90 transition-all">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isSignupOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm px-6"
+          onClick={() => setIsSignupOpen(false)}
+        >
+          <div
+            className="w-full max-w-md bg-[#111111] border border-white/10 p-8 rounded-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsSignupOpen(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <h2 className="text-2xl font-semibold text-white mb-2 tracking-wide">
+              Create Account
+            </h2>
+
+            <p className="text-white/50 text-sm mb-8">
+              Join the ZAHW experience
+            </p>
+
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full h-12 bg-white/5 border border-white/10 px-4 text-white outline-none"
+              />
+
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full h-12 bg-white/5 border border-white/10 px-4 text-white outline-none"
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full h-12 bg-white/5 border border-white/10 px-4 text-white outline-none"
+              />
+
+              <button className="w-full h-12 bg-primary text-black font-medium hover:opacity-90 transition-all">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
