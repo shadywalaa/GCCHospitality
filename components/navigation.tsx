@@ -117,11 +117,27 @@ export function Navigation() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="/properties" className="block pt-4">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12">
-                  Book Now
-                </Button>
-              </Link>
+              <div className="pt-6 space-y-3">
+                <button
+                  onClick={() => {
+                    setIsLoginOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full h-12 border border-white/10 text-white"
+                >
+                  Login
+                </button>
+
+                <button
+                  onClick={() => {
+                    setIsSignupOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full h-12 bg-primary text-black"
+                >
+                  Sign Up
+                </button>
+              </div>
             </div>
           </div>
         )}
