@@ -98,8 +98,8 @@ export function HeroSection() {
                 </div>
 
                 {/* Dates */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4 gap-y-5">
-                  <div className="space-y-2 w-full bg-secondary/40 p-3 rounded-md">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK IN
                     </label>
@@ -107,11 +107,11 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 w-full bg-secondary/40 p-3 rounded-md">
+                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK OUT
                     </label>
@@ -119,7 +119,7 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export function HeroSection() {
                   </label>
                   <div className="relative">
                     <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <select className="w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm appearance-none focus:outline-none focus:border-primary transition-colors">
+                    <select className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm appearance-none focus:outline-none focus:border-primary transition-colors">
                       <option value="2">2 Guests</option>
                       <option value="4">4 Guests</option>
                       <option value="6">6 Guests</option>
