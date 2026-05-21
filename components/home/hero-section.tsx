@@ -107,7 +107,7 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full min-w-0 max-w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 max-w-full appearance-none bg-secondary border border-border pl-11 pr-10 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full min-w-0 max-w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 max-w-full appearance-none bg-secondary border border-border pl-11 pr-10 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
