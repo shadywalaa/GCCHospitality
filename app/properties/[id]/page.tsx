@@ -597,7 +597,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
               guests: String(guests),
             });
 
-            window.location.href = `/checkout/${property.id}?${query.toString()}`;
+            window.location.href = `/checkout/${property.id}?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`;
           }}
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-sm tracking-wide"
         >
