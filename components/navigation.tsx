@@ -15,6 +15,8 @@ const navigation = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,16 +69,25 @@ export function Navigation() {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-6">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <div className="hidden lg:flex items-center gap-5">
+            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-all duration-300">
               <span>EN</span>
               <ChevronDown className="w-3 h-3" />
             </button>
-            <Link href="/properties">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 h-10 text-sm tracking-wide">
-                Book Now
-              </Button>
-            </Link>
+
+            <button
+              onClick={() => setIsLoginOpen(true)}
+              className="text-sm tracking-wide text-muted-foreground hover:text-white transition-all duration-300"
+            >
+              Login
+            </button>
+
+            <button
+              onClick={() => setIsSignupOpen(true)}
+              className="border border-primary/40 px-5 h-10 text-sm tracking-wide hover:bg-primary hover:text-black transition-all duration-300"
+            >
+              Sign Up
+            </button>
           </div>
 
           {/* Mobile Menu Button */}

@@ -133,6 +133,7 @@ export function HeroSection() {
                   <div className="relative">
                     <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <select className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm appearance-none focus:outline-none focus:border-primary transition-colors">
+                      <option value="2"> No. of Guests</option>
                       <option value="2">2 Guests</option>
                       <option value="4">4 Guests</option>
                       <option value="6">6 Guests</option>

@@ -8,7 +8,7 @@ const testimonials = [
     avatar: "",
     rating: 5,
     quote:
-      "ZAHW redefined what we expected from luxury hospitality. The attention to detail and personalized service were extraordinary. Our family felt truly at home.",
+      "ZAHW redefined what we expected from Exclusive hospitality. The attention to detail and personalized service were extraordinary. Our family felt truly at home.",
   },
   {
     name: "Sarah Mohamed",
@@ -25,7 +25,7 @@ const testimonials = [
       "https://media.istockphoto.com/id/2171382633/vector/user-profile-icon-anonymous-person-symbol-blank-avatar-graphic-vector-illustration.jpg?s=612x612&w=0&k=20&c=ZwOF6NfOR0zhYC44xOX06ryIPAUhDvAajrPsaZ6v1-w=",
     rating: 5,
     quote:
-      "As someone in the industry, I appreciate ZAHW commitment to quality. Their properties represent the finest in Gulf luxury, and their service is unmatched.",
+      "As someone in the industry, I appreciate ZAHW's commitment to quality. Their properties represent the finest in Gulf luxury, and their service is unmatched.",
   },
 ];
 

@@ -473,7 +473,24 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
+  // Calculate nights dynamically
+  const calculateNights = () => {
+    if (!checkIn || !checkOut) return 0;
 
+    const start = new Date(checkIn);
+    const end = new Date(checkOut);
+
+    const diffTime = end.getTime() - start.getTime();
+    const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    return nights > 0 ? nights : 0;
+  };
+
+  const nights = calculateNights();
+
+  const subtotal = property.price * nights;
+  const serviceFee = Math.round(subtotal * 0.15);
+  const total = subtotal + serviceFee;
   return (
     <div className="sticky top-28">
       <div className="bg-card border border-border p-6 space-y-6">
@@ -543,27 +560,28 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
         <div className="space-y-3 pt-4 border-t border-border">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">
-              {property.currency} {property.price.toLocaleString()} × 3 nights
+              {property.currency} {property.price.toLocaleString()} ×{" "}
+              {nights || 0} {nights === 1 ? "night" : "nights"}
             </span>
+
             <span className="text-foreground">
-              {property.currency} {(property.price * 3).toLocaleString()}
+              {property.currency} {subtotal.toLocaleString()}
             </span>
           </div>
+
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Service fee</span>
+
             <span className="text-foreground">
-              {property.currency}{" "}
-              {Math.round(property.price * 0.15).toLocaleString()}
+              {property.currency} {serviceFee.toLocaleString()}
             </span>
           </div>
+
           <div className="flex justify-between pt-3 border-t border-border">
             <span className="text-foreground font-medium">Total</span>
+
             <span className="text-foreground font-medium">
-              {property.currency}{" "}
-              {(
-                property.price * 3 +
-                Math.round(property.price * 0.15)
-              ).toLocaleString()}
+              {property.currency} {total.toLocaleString()}
             </span>
           </div>
         </div>
@@ -586,7 +604,9 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
           </div>
           <div>
             <div className="text-foreground font-medium">Need assistance?</div>
-            <div className="text-muted-foreground text-sm">Contact us</div>
+            <div className="text-muted-foreground text-sm">
+              24/7 concierge support
+            </div>
           </div>
         </div>
         <Button

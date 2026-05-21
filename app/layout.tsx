@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZAHW | Luxury Hospitality Across the GCC",
+  title: "ZAHW | Exclusive Hospitality Across the GCC",
   description:
     "Experience unparalleled luxury across Qatar and the GCC. Premium villas, hotels, and exclusive hospitality experiences.",
   generator: "v0.app",
