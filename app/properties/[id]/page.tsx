@@ -591,14 +591,13 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
         {/* Book Button */}
         <Button
           onClick={() => {
-            const params = new URLSearchParams({
-              id: property.id,
+            const query = new URLSearchParams({
               checkIn,
               checkOut,
               guests: String(guests),
             });
 
-            window.location.href = `/checkout?${params.toString()}`;
+            window.location.href = `/checkout/${property.id}?${query.toString()}`;
           }}
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-sm tracking-wide"
         >
