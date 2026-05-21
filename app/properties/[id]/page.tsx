@@ -488,7 +488,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
         {/* Booking Form */}
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="space-y-2">
+            <div className="space-y-2 min-w-0">
               <label className="text-muted-foreground text-xs tracking-wide">
                 CHECK IN
               </label>
@@ -498,11 +498,11 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
                   type="date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
-                  className="w-full min-w-0 bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="w-full min-w-0 max-w-full appearance-none bg-secondary border border-border pl-11 pr-10 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 min-w-0">
               <label className="text-muted-foreground text-xs tracking-wide">
                 CHECK OUT
               </label>
@@ -512,7 +512,7 @@ function BookingCard({ property }: { property: (typeof properties)[0] }) {
                   type="date"
                   value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
-                  className="w-full min-w-0 bg-secondary border border-border pl-10 pr-3 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="w-full min-w-0 max-w-full appearance-none bg-secondary border border-border pl-11 pr-10 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </div>
