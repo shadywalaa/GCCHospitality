@@ -98,8 +98,8 @@ export function HeroSection() {
                 </div>
 
                 {/* Dates */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full min-w-0">
+                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md min-w-0 overflow-hidden">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK IN
                     </label>
@@ -107,11 +107,11 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 max-w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md">
+                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md min-w-0 overflow-hidden">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK OUT
                     </label>
@@ -119,7 +119,7 @@ export function HeroSection() {
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="date"
-                        className="w-full min-w-0 bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full min-w-0 max-w-full bg-secondary border border-border pl-11 pr-4 py-3 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
                   </div>
