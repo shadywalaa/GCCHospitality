@@ -99,7 +99,7 @@ export function HeroSection() {
 
                 {/* Dates */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full min-w-0">
-                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md min-w-0 overflow-hidden">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK IN
                     </label>
@@ -111,7 +111,7 @@ export function HeroSection() {
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 bg-secondary/40 p-3 rounded-md min-w-0 overflow-hidden">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-muted-foreground text-xs tracking-wide">
                       CHECK OUT
                     </label>
